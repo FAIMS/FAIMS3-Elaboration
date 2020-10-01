@@ -1,0 +1,190 @@
+{
+    "definitions": {},
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://www.comp.mq.edu.au/comp2110/2020-citizen-trees.json",
+    "type": "object",
+    "title": "The Root Schema",
+    "required": [
+      "participant",
+      "date",
+      "time",
+      "location",
+      "temperature",
+      "weather",
+      "wind",
+      "tree-height",
+      "tree-girth-base",
+      "leaf-size",
+      "leaf-shape",
+      "bark-colour",
+      "bark-texture",
+      "surrounding-landscape",
+      "surrounding-density",
+      "surrounding-cars",
+      "surrounding-buildings"
+    ],
+    "properties": {
+      "participant": {
+        "$id": "#/properties/participant",
+        "type": "string",
+        "title": "Participant Identifier",
+        "default": "",
+        "examples": [
+          "12345ABCD"
+        ],
+        "pattern": "^(.*)$"
+      },
+      "date": {
+        "$id": "#/properties/date",
+        "type": "string",
+        "format": "date",
+        "title": "Observation Date",
+        "default": "",
+        "examples": [
+          "2020-03-14"
+        ]
+      },
+      "time": {
+        "$id": "#/properties/time",
+        "type": "string",
+        "format": "time",
+        "title": "Observation Time",
+        "default": "",
+        "examples": [
+          "13:12"
+        ]
+      },
+      "location": {
+        "$id": "#/properties/location",
+        "type": "string",
+        "title": "Observation Location",
+        "default": "",
+        "examples": [
+          "Epping, NSW"
+        ],
+        "pattern": "^(.*)$"
+      },
+      "temperature": {
+        "$id": "#/properties/temperature",
+        "type": "integer",
+        "title": "Temperature (Celcius)",
+        "default": 0,
+        "examples": [
+          23
+        ]
+      },
+      "weather": {
+        "$id": "#/properties/weather",
+        "type": "string",
+        "enum": ["fine", "raining", "sunny", "stormy"],
+        "title": "Weather",
+        "default": ""
+      },
+      "wind": {
+        "$id": "#/properties/wind",
+        "type": "string",
+        "enum": ["none", "light", "medium", "strong"],
+        "title": "Wind Strength",
+        "default": ""
+      },
+
+
+
+      "tree-height": {
+        "$id": "#/properties/tree-height",
+        "type": "integer",
+        "title": "Tree Height (m)",
+        "default": 0,
+        "examples": [
+          10
+        ]
+      },
+      "tree-girth-base": {
+        "$id": "#/properties/tree-girth-base",
+        "type": "number",
+        "title": "Tree Girth at Base (m)",
+        "default": 0,
+        "examples": [
+          2
+        ]
+      },
+      "leaf-size": {
+        "$id": "#/properties/leaf-size",
+        "type": "string",
+        "enum": ["small", "medium", "large"],
+        "title": "Leaf Size",
+        "default": ""
+      },
+      "leaf-shape": {
+        "$id": "#/properties/leaf-shape",
+        "type": "string",
+        "enum": ["rounded", "pointy", "divided"],
+        "title": "Leaf Shape",
+        "default": "",
+        "examples": [
+          "rounded"
+        ]
+      },
+      "bark-colour": {
+        "$id": "#/properties/bark-colour",
+        "type": "string",
+        "enum": ["grey", "red", "silver", "brown"],
+        "title": "Bark Colour",
+        "default": "",
+        "examples": [
+          "grey"
+        ]
+      },
+      "bark-texture": {
+        "$id": "#/properties/bark-texture",
+        "type": "string",
+        "enum": ["smooth", "peeling", "crinkles", "furry", "spotty"],
+        "title": "Bark Texture",
+        "default": "",
+        "examples": [
+          "smooth"
+        ]
+      },
+      "surrounding-landscape": {
+        "$id": "#/properties/surrounding-landscape",
+        "type": "string",
+        "enum": ["grassy", "wooded", "bush", "urban"],
+        "title": "Surrounding Landscape",
+        "default": "",
+        "examples": [
+          "wooded"
+        ]
+      },
+      "surrounding-density": {
+        "$id": "#/properties/surrounding-density",
+        "type": "string",
+        "enum": ["low", "medium", "high"],
+        "title": "Surrounding Density",
+        "default": "",
+        "examples": [
+          "light"
+        ]
+      },
+      "surrounding-cars": {
+        "$id": "#/properties/surrounding-cars",
+        "type": "string",
+        "enum": ["few", "medium", "many"],
+        "title": "Surrounding Cars",
+        "default": "",
+        "examples": [
+          "few"
+        ]
+      },
+      "surrounding-buildings": {
+        "$id": "#/properties/surrounding-buildings",
+        "type": "string",
+        "enum": ["none", "few", "many"],
+        "title": "Surrounding Buildings",
+        "default": "",
+        "examples": [
+          "none"
+        ]
+      }
+    }
+  }
+  

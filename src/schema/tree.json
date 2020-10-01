@@ -1,0 +1,73 @@
+{
+    "definitions": {},
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://www.comp.mq.edu.au/comp2110/2020-citizen-trees.json",
+    "type": "object",
+    "title": "The Tree Schema",
+    "required": [
+      "tree_height",
+      "tree_girth_base",
+      "leaf_size",
+      "leaf_shape",
+      "bark_colour",
+      "bark_texture"
+    ],
+    "properties": {
+      "tree_height": {
+        "$id": "#/properties/tree_height",
+        "type": "number",
+        "title": "Tree Height (m)",
+        "default": 0,
+        "examples": [
+          10
+        ]
+      },
+      "tree_girth_base": {
+        "$id": "#/properties/tree_girth_base",
+        "type": "number",
+        "title": "Tree Girth at Base (m)",
+        "default": 0,
+        "examples": [
+          2
+        ]
+      },
+      "leaf_size": {
+        "$id": "#/properties/leaf_size",
+        "type": "string",
+        "enum": ["small", "medium", "large"],
+        "title": "Leaf Size",
+        "default": ""
+      },
+      "leaf_shape": {
+        "$id": "#/properties/leaf_shape",
+        "type": "string",
+        "enum": ["rounded", "pointy", "divided"],
+        "title": "Leaf Shape",
+        "default": "",
+        "examples": [
+          "rounded"
+        ]
+      },
+      "bark_colour": {
+        "$id": "#/properties/bark_colour",
+        "type": "string",
+        "enum": ["grey", "red", "silver", "brown"],
+        "title": "Bark Colour",
+        "default": "",
+        "examples": [
+          "grey"
+        ]
+      },
+      "bark_texture": {
+        "$id": "#/properties/bark_texture",
+        "type": "string",
+        "enum": ["smooth", "peeling", "crinkles", "furry", "spotty"],
+        "title": "Bark Texture",
+        "default": "",
+        "examples": [
+          "smooth"
+        ]
+      }
+    }
+  }
+  

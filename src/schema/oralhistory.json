@@ -1,0 +1,161 @@
+{
+    "definitions": {
+        "street-address": {      
+            "type": "object",
+            "properties": {
+              "street_address": { "type": "string" },
+              "city":           { "type": "string" },
+              "state":          { "type": "string" }
+            },
+            "required": ["street_address", "city", "state"]
+        },
+        "gps-location": {
+            "type": "object",
+            "properties": {
+                "latitude": {"type": "number"},
+                "longitude": {"type": "number"},
+                "elevation": {"type": "number"},
+                "accuracy": {"type": "number"}
+            }
+        },
+        "audio-file": {
+            "description": "Audio file uploaded to the device",
+            "type": "object",
+            "properties": {
+                "filename": {"type": "string"},
+                "device": {"type": "string"}
+            }
+        },
+        "audio-capture": {
+            "description" : "Audio captured on-device",
+            "type": "object",
+            "properties": {
+                "filename": {"type": "string"},
+                "device": {"type": "string"}
+            }
+        }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://faims.org/schema/oral-history-doumanis",
+    "type": "object",
+    "title": "Oral History Schema",
+    "required": [ 
+        "id",
+        "interview",
+        "participants"
+    ],
+    "properties": {
+        "interview": {
+            "id": {
+                "description": "Unique identifier",
+                "type": "integer"
+            },
+            "location": {
+                "description": "interview location",
+                "$ref": "#/definitions/street-address"
+            },
+            "gps-location": {
+                "description": "location from GPS",
+                "$ref": "#/definitions/gps-location"
+            },
+            "start-of-interview": {
+                "description": "time at start of interview",
+                "type": "string",
+                "format": "date-time"
+            },
+            "end-of-interview": {
+                "description": "time at end of interview",
+                "type": "string",
+                "format": "date-time"
+            },
+            "device-interview-recording": {
+                "description": "recording of interview on device",
+                "$ref": "#/definitions/audio-capture"
+            }
+        },
+        "participants": {
+            "description": "People who took part in the recording",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "participant-id": {
+                        "description": "unique id for participant",
+                        "type": "integer"
+                    },
+                    "first-name": {
+                        "description": "First Name",
+                        "type": "string"
+                    },
+                    "last-name": {
+                        "description": "Last Name",
+                        "type": "string"
+                    },
+                    "gender": {
+                        "description": "Gender",
+                        "type": "string", 
+                        "enum": ["Male", "Female", "N/A"]
+                    },
+                    "photo-of-consent-form": {
+                        "description": "Photograph of signed consent form",
+                        "$ref": "#/definitions/image-capture"
+                    },
+                    "participant-questions": {
+                        "description": "Demographic questions for each participant",
+                        "type": "object",
+                        "properties": {
+                            "mother-region": {
+                                "description": "Where was your mother born (region)?",
+                                "type": "string",
+                                "enum": ["Thrace", "Macedonia", "Thessaly", "Epirus", "Central Greece", "Peloponnese", "Aegean Islands", "Ionian Island", "Crete", "Outside of Greece", "Non-Greek"]
+                            },
+                            "mother-village": {
+                                "description": "What village was your mother born in?",
+                                "type": "string"
+                            },
+                            "father-region": {
+                                "description": "Where was your father born (region)?",
+                                "type": "string",
+                                "enum": ["Thrace", "Macedonia", "Thessaly", "Epirus", "Central Greece", "Peloponnese", "Aegean Islands", "Ionian Island", "Crete", "Outside of Greece", "Non-Greek"]
+                            },
+                            "father-village": {
+                                "description": "What village was your father born in?",
+                                "type": "string"
+                            },
+                            "did-mother-migrate": {
+                                "description": "Did your mother migrate to Australia?",
+                                "type": "boolean"
+                            },         
+                            "mother-migrate": {
+                                "description": "When did your mother migrate to Australia",
+                                "$ref": "#/definitions/year",
+                                "condition": "display if did-mother-migrate"
+                            }
+                        }
+                    }
+                },
+            "minItems": 2,
+            "uniqueItems": true
+            }
+        },
+        "audio-recordings": {
+            "description": "external audio recordings",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "file": {
+                        "description": "audio file",
+                        "$ref": "#/definitions/audio-file"
+                    },
+                    "device": {
+                        "description": "recording device",
+                        "type": "string",
+                        "enum": ["Zoom H2N", "Zoom H6 Ch1", "Zoom H6 Ch2", "Zoom H6 Ch3", "Zoom H6 Ch4", "Zoom H6 onboard mic"]
+                    }
+                }
+
+            }
+        }
+    }
+}
