@@ -1,4 +1,4 @@
-import React, {useState, useEffect, Fragment} from 'react';
+import React, {useState, Fragment} from 'react';
 import Button from '@material-ui/core/Button'
 import SchemaForm from './SchemaForm'
 

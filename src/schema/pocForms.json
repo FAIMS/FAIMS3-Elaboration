@@ -10,14 +10,11 @@
           "required": [
             "date",
             "time",
-            "temperature",
             "weather",
-            "wind",
             "location"
           ],
           "properties": {
             "date": {
-              "$id": "#/properties/date",
               "type": "string",
               "format": "date",
               "title": "Observation Date",
@@ -27,7 +24,6 @@
               ]
             },
             "time": {
-              "$id": "#/properties/time",
               "type": "string",
               "format": "time",
               "title": "Observation Time",
@@ -37,7 +33,6 @@
               ]
             },
             "temperature": {
-              "$id": "#/properties/temperature",
               "type": "integer",
               "title": "Temperature (Celcius)",
               "default": 0,
@@ -46,21 +41,18 @@
               ]
             },
             "weather": {
-              "$id": "#/properties/weather",
               "type": "string",
               "enum": ["fine", "raining", "sunny", "stormy"],
               "title": "Weather",
               "default": ""
             },
             "wind": {
-              "$id": "#/properties/wind",
               "type": "string",
               "enum": ["none", "light", "medium", "strong"],
               "title": "Wind Strength",
               "default": ""
             },
             "location": {
-              "$id": "#/properties/location",
               "type": "string",
               "title": "Observation Location",
               "default": "",

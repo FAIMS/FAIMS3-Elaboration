@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 import FormSequence from './components/FormSequence'
 import './App.css';
 

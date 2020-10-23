@@ -28,8 +28,9 @@ const SchemaForm = ({formSpec, callbackFn}: FormProps) => {
     }
 
     return (
-        <div>
-              <JsonForms
+        <div data-testid='jsonform'>
+          <form>
+            <JsonForms
               schema={formSpec.schema}
               uischema={formSpec.ui}
               data={standaloneData}
@@ -39,6 +40,7 @@ const SchemaForm = ({formSpec, callbackFn}: FormProps) => {
             />
 
             <Button variant="contained" onClick={action}>Next</Button>
+          </form>
         </div>
     )
 }
