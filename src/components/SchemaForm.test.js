@@ -40,3 +40,8 @@ it('renders a simple form', () => {
   //expect(form).toHaveTextContent(formSpec.schema.properties.foo.title)
   
 });
+
+
+it('has a test that fails', () => {
+    expect(3).toBe(1)
+})
