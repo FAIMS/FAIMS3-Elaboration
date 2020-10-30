@@ -21,7 +21,8 @@
     "typescript": "^3.9.7"
   },
   "devDependencies": {
-    "react-scripts": "^3.4.3"
+    "react-scripts": "^3.4.3",
+    "wd": "^1.13.0"
   },
   "scripts": {
     "start": "react-scripts start",
