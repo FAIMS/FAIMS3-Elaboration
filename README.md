@@ -11,7 +11,7 @@ Pre-requisites:
 
     `'app': 'bs://87f241809661b3baa5fe15f6ad97322fd28b0a0e'`
     
-2. Set access credentials in environment.js.
+2. Set access credentials in [environment.js](https://github.com/FAIMS/FAIMS3-Elaboration/blob/master/src/e2e/environment.js).
 
 3. Execute the tests:
 
