@@ -9,7 +9,7 @@ desiredCaps = {
     'browserstack.key': environment.browserstack.key,
 
     // Set URL of the application under test
-    'app': 'bs://87f241809661b3baa5fe15f6ad97322fd28b0a0e',
+    'app': environment.browserstack.appUrl,
 
     // Specify device and os_version for testing
     'device': 'Google Pixel 3',
