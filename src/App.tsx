@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import Grid from '@material-ui/core/Grid';
 import FormSequence from './components/FormSequence'
 import './App.css';
 
@@ -20,15 +19,9 @@ const App = () => {
 
   return (
     <Fragment>
-      <Grid
-        container
-        justify={'center'}
-        spacing={1}
-      >
-        <Grid item sm={6}>
-            <FormSequence formSpec={pocForms} callbackFn={formComplete} />
-        </Grid>
-      </Grid>
+      <div>   
+          <FormSequence formSpec={pocForms} callbackFn={formComplete} />
+      </div>
     </Fragment>
   );
 };

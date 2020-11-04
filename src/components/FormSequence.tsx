@@ -1,5 +1,4 @@
 import React, {useState, Fragment} from 'react';
-import Button from '@material-ui/core/Button'
 import SchemaForm from './SchemaForm'
 
 /**
@@ -30,7 +29,7 @@ const FormSequence = ({formSpec, callbackFn}: any) => {
         return (
         <Fragment>
             <h1>Form Data</h1>
-            <Button variant="contained" onClick={reset}>Reset</Button>
+            <button onClick={reset}>Reset</button>
             <pre>{JSON.stringify(formData, null, 2)}</pre>
         </Fragment>)
     } else {
