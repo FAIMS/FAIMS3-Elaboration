@@ -10,7 +10,7 @@ A project to explore technologies in FAIMS3
   `npm install wd`
 
 ### Steps: 
-1. Upload the app and make sure it's reflected in the test.
+1. Upload the app and make sure it's reflected in the [appUrl](https://github.com/FAIMS/FAIMS3-Elaboration/blob/master/src/e2e/environment.js)
 
     `'app': 'bs://87f241809661b3baa5fe15f6ad97322fd28b0a0e'`
    
