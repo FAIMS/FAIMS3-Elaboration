@@ -7,6 +7,8 @@ desiredCaps = {
     // Set your BrowserStack access credentials
     'browserstack.user': environment.browserstack.user,
     'browserstack.key': environment.browserstack.key,
+    // Specify appium version for consistency
+    'browserstack.appium_version': '1.6.5',
 
     // Set URL of the application under test
     'app': environment.browserstack.appUrl,
