@@ -33,9 +33,16 @@ it('renders a simple form', () => {
 
   const callback = () => 3
 
-  const wrapper = shallow(<SchemaForm formSpec={formSpec} callbackFn={callback} />, div);
+  const wrapper = mount(<SchemaForm formSpec={formSpec} callbackFn={callback} />, div);
 
-  expect(wrapper.contains('Next')).toBe(true) // Next button
-  expect(wrapper.html()).toMatch(formSpec.schema.properties.foo.title)
-  
+  // we have a next button
+  expect(wrapper.find('button').text()).toBe("Next") 
+  // we have a label with the field name
+  expect(wrapper.find('label').text()).toMatch(formSpec.schema.properties.foo.title)
+  // we have an input element with the right id
+  expect(wrapper.exists('input[id="#/properties/foo-input"]')).toBe(true)
+  // value should be empty
+  expect(wrapper.find('input[id="#/properties/foo-input"]').props().value).toBe("")
+
+  wrapper.unmount()
 });
