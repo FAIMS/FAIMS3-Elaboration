@@ -42,7 +42,7 @@ driver
             'Learn React', asserters.isDisplayed
         && asserters.isEnabled, 30000);
     })
-    .then(async (learnReact) => {
+    .then(async (learnReact: { click: () => any; }) => {
         await learnReact.click();
     })
     .then(async () => {
