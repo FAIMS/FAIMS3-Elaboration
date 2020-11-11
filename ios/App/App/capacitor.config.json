@@ -1,0 +1,13 @@
+{
+  "appId": "au.edu.faims",
+  "appName": "faims3-elaboration",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "build",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}
