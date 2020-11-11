@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@capacitor/android": "^2.4.2",
+    "@capacitor/cli": "^2.4.2",
+    "@capacitor/core": "^2.4.2",
     "@jsonforms/core": "^2.4.0",
     "@jsonforms/react": "^2.4.0",
     "@jsonforms/vanilla-renderers": "^2.4.1",
@@ -18,7 +21,7 @@
     "react-redux": "^7.2.1",
     "typescript": "^3.9.7"
   },
-  "devDependencies": { 
+  "devDependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "enzyme": "^3.11.0",
