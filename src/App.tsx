@@ -2,6 +2,7 @@ import React from 'react';
 import { Router, RouteComponentProps, Link } from "@reach/router"; 
 import FormSequence from './components/FormSequence'
 import ListObservations from './components/ListObservations'
+import SingleObservation from './components/SingleObservation'
 import dataService from './services/data.service'
 import './App.css';
 import logo from './faims-logo.png'
@@ -39,6 +40,7 @@ const App = () => {
         <Logo path="/" />
         <Forms path="/forms" />
         <ListPage path="/list" />
+        <SingleObservation path="/list/:id"/>
       </Router>
       
     </div>

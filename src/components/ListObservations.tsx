@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import { Link } from "@reach/router"; 
 import dataService from '../services/data.service'
 
 const ListObservations =  () => {
@@ -17,7 +18,9 @@ const ListObservations =  () => {
         <ul>
             {records.map((record: any) => 
                     (<li key={record._id}>
+                        <Link to={'/list/' + record._id}>
                         {record._id} | {record.location} | {record.tree_height}
+                        </Link>
                     </li>)
              )}
         </ul>
