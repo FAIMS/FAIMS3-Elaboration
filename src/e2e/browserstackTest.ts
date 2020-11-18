@@ -1,6 +1,6 @@
-const wd = require('wd');
-const assert = require('assert');
-const asserters = wd.asserters;
+let wd = require('wd');
+let assert = require('assert');
+let asserters = wd.asserters;
 
 const desiredCaps = {
     // Set your BrowserStack access credentials
@@ -65,3 +65,6 @@ driver
         return driver.quit();
     })
     .done();
+
+//https://stackoverflow.com/a/64677282
+export default {}
