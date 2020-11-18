@@ -14,9 +14,6 @@ const FormSequence = ({formSpec, callbackFn}: any) => {
     const mergeFormData = (data: any) => {
         setFormData({...formData,...data})
         setFormIndex(formIndex+1)
-        if (formIndex >= formSpec.sequence.length) {
-            callbackFn(formData)
-        }
     }
 
     const reset = () => {
@@ -26,6 +23,7 @@ const FormSequence = ({formSpec, callbackFn}: any) => {
 
     //  Display the form data when the sequence is complete
     if (formIndex >= formSpec.sequence.length) {
+        callbackFn(formData)
         return (
         <Fragment>
             <h1>Form Data</h1>

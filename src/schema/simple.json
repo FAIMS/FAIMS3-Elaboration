@@ -1,0 +1,91 @@
+{
+    "sequence" : ["general", "tree"],
+    "general":{
+        "schema": {
+          "definitions": {},
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "$id": "http://www.comp.mq.edu.au/comp2110/2020-citizen-general.json",
+          "type": "object",
+          "title": "The General Information Schema",
+          "required": [
+            "location"
+          ],
+          "properties": {
+            "wind": {
+              "type": "string",
+              "enum": ["none", "light", "medium", "strong"],
+              "title": "Wind Strength",
+              "default": ""
+            },
+            "location": {
+              "type": "string",
+              "title": "Observation Location",
+              "default": "",
+              "examples": [
+                "Epping, NSW"
+              ],
+              "pattern": "^(.*)$"
+            }
+          }
+        },
+        "ui": {
+          "type": "VerticalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/location"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/wind"
+            }     
+          ]
+        } 
+    },    
+    "tree": {
+        "schema" : {
+          "definitions": {},
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "$id": "http://www.comp.mq.edu.au/comp2110/2020-citizen-trees.json",
+          "type": "object",
+          "title": "The Tree Schema",
+          "required": [
+            "tree_height"
+          ],
+          "properties": {
+            "tree_height": {
+              "$id": "#/properties/tree_height",
+              "type": "number",
+              "title": "Tree Height (m)",
+              "default": 0,
+              "examples": [
+                10
+              ]
+            },
+            "bark_texture": {
+              "$id": "#/properties/bark_texture",
+              "type": "string",
+              "enum": ["smooth", "peeling", "crinkles", "furry", "spotty"],
+              "title": "Bark Texture",
+              "default": "",
+              "examples": [
+                "smooth"
+              ]
+            }
+          }
+        },
+        "ui": {
+          "type": "VerticalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/tree_height"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/bark_texture"
+            }      
+          ]
+        }
+    }      
+}
