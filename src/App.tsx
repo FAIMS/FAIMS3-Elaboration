@@ -10,12 +10,9 @@ import logo from './faims-logo.png'
 // import pocForms from './schema/pocForms.json'
 import pocForms from './schema/simple.json'
 
-interface CompoundFormData {
-  generalData: object,
-  treeData: object
-}
-
 const App = () => {
+
+  dataService.createDB(pocForms.localDB, pocForms.remoteDB)
 
   const formComplete = (formData: any) => {
     console.log("FORM COMPLETE", formData)

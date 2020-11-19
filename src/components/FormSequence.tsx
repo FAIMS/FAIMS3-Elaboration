@@ -1,4 +1,5 @@
 import React, {useState, Fragment} from 'react';
+import {navigate} from "@reach/router"
 import SchemaForm from './SchemaForm'
 
 /**
@@ -16,20 +17,11 @@ const FormSequence = ({formSpec, callbackFn}: any) => {
         setFormIndex(formIndex+1)
     }
 
-    const reset = () => {
-        setFormIndex(0)
-        setFormData({})
-    }
-
     //  Display the form data when the sequence is complete
     if (formIndex >= formSpec.sequence.length) {
         callbackFn(formData)
-        return (
-        <Fragment>
-            <h1>Form Data</h1>
-            <button onClick={reset}>Reset</button>
-            <pre>{JSON.stringify(formData, null, 2)}</pre>
-        </Fragment>)
+        navigate('/list')
+        return (<p />)
     } else {
         return (
             <SchemaForm formSpec={formSpec[formSpec.sequence[formIndex]]} 

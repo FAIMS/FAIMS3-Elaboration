@@ -1,22 +1,39 @@
 import PouchDB from 'pouchdb';
 
-const db = new PouchDB('formdata')
+let localDB:PouchDB.Database
+let remoteDB:PouchDB.Database
+
+const createDB = (dbname: string, dburl:string) => {
+    localDB = new PouchDB(dbname)
+    if (dburl) {
+        remoteDB = new PouchDB(dburl)
+        localDB.sync(remoteDB, {live: true, retry: true})
+            .on('change', (change) => {
+                console.log("CHANGE", change)
+            })
+            .on('error', (err) => {
+                console.log("DB ERROR", err)
+            })
+    }
+}
 
 const storeRecord = (record: any) => {
-    record._id = new Date().toISOString()
-    console.log("Storing", record)
-    db.put(record).then(r => console.log(r))
+    if (localDB) {
+        record._id = new Date().toISOString()
+        console.log("Storing", record)
+        localDB.put(record).then(r => console.log(r))
+    }
 }
 
 const listRecords = () => {
-    return db.allDocs({include_docs: true})
+    return localDB.allDocs({include_docs: true})
              .then(result => {
                  return result.rows.map(el => el.doc)})
 }
 
 const getRecord = (id:string) => {
-    return db.get(id)
+    return localDB.get(id)
 }
 
-export default {storeRecord, listRecords, getRecord}
+export default {createDB, storeRecord, listRecords, getRecord}
 

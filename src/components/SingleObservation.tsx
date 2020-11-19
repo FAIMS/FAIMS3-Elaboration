@@ -17,7 +17,7 @@ const SingleObservation =  ({id}:any) => {
         <ul>
             {Object.entries(record).map( ([k,v]) => {
                     if (k[0] != '_') {
-                        return (<p>{k}: {v}</p>)
+                        return (<p key={k}>{k}: {v}</p>)
                     }
                 })}
         </ul>

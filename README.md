@@ -1,6 +1,30 @@
 # FAIMS3-Elaboration
 A project to explore technologies in FAIMS3 
 
+## To build Android (or IOS) App
+
+Build the web application:
+
+```
+npm run build
+```
+Copy over the assets to the mobile app:
+
+```
+npx cap copy
+```
+
+Open up platform developer tools:
+
+```
+npx cap open android
+```
+
+In the developer tools, run the project.
+
+When the app is updated, running the build and copy steps will copy the new version over, you can then re-run the platform app to see the update.
+
+
 ## To run e2e tests:
 
 ### Pre-requisites:
