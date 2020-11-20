@@ -11,14 +11,14 @@ const SingleObservation =  ({id}:any) => {
                    console.log(data)
                    setRecord(data)
             })
-    }, [])
+    }, [id])
 
     return (
         <ul>
             {Object.entries(record).map( ([k,v]) => {
-                    if (k[0] != '_') {
+                    if (k[0] !== '_') {
                         return (<p key={k}>{k}: {v}</p>)
-                    }
+                    } 
                 })}
         </ul>
     )

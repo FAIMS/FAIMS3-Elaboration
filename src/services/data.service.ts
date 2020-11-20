@@ -10,6 +10,8 @@ const createDB = (dbname: string, dburl:string) => {
         localDB.sync(remoteDB, {live: true, retry: true})
             .on('change', (change) => {
                 console.log("CHANGE", change)
+                const event = new Event('dataUpdated')
+                window.dispatchEvent(event)
             })
             .on('error', (err) => {
                 console.log("DB ERROR", err)

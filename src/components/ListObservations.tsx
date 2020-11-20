@@ -14,6 +14,17 @@ const ListObservations =  () => {
             })
     }, [])
 
+    useEffect(() => {
+        window.addEventListener('dataUpdated', () => {
+            console.log("Event!")
+            dataService.listRecords()
+            .then(data => { 
+                   console.log("Updated:", data)
+                   setRecords(data)
+            })
+        })
+    })
+
     return (
         <ul>
             {records.map((record: any) => 
