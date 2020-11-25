@@ -35,7 +35,7 @@ const App = () => {
       <nav>
         <ul>
           <li><Link to="/">Home</Link></li>
-          <li><Link to="/schema">Schema</Link></li>
+          <li><Link to="/schema">Select Schema</Link></li>
           <li><Link to="/forms">Enter Observation</Link></li>
           <li><Link to="/list">List Observations</Link></li>
         </ul>

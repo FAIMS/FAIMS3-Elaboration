@@ -22,6 +22,7 @@ const FormSequence = ({callbackFn}: any) => {
 
     //  Display the form data when the sequence is complete
     if (!formSpec) {
+        navigate('/schema')
         return (<p>No Schema Selected</p>)
     } else if (formIndex >= formSpec.sequence.length) {
         callbackFn(formData)

@@ -43,7 +43,7 @@ const createDB = (schemaid:string) => {
         console.log(schema)
         selectedSchema = schema
         localDB = new PouchDB(schema.localDB)
-        if (schema.dburl) {
+        if (schema.remoteDB) {
             remoteDB = new PouchDB(schema.remoteDB)
             localDB.sync(remoteDB, {live: true, retry: true})
                 .on('change', (change) => {

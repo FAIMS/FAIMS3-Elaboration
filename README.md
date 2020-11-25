@@ -1,6 +1,13 @@
 # FAIMS3-Elaboration
 A project to explore technologies in FAIMS3 
 
+The application collects data based on a JSON specification of a set of forms and stores
+observations in a local database synchronised to a remote database.   Application 
+specifications (schema) are stored in the remote database and can be selected
+at runtime. 
+
+Note that CouchDB databases need to be public for this to work (no authentication yet). 
+
 ## To build Android (or IOS) App
 
 Build the web application:
