@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, Fragment} from 'react';
 import dataService from '../services/data.service'
 
 const SingleObservation =  ({id}:any) => {
@@ -18,7 +18,9 @@ const SingleObservation =  ({id}:any) => {
             {Object.entries(record).map( ([k,v]) => {
                     if (k[0] !== '_') {
                         return (<p key={k}>{k}: {v}</p>)
-                    } 
+                    } else {
+                        return (<Fragment/>)
+                    }
                 })}
         </ul>
     )

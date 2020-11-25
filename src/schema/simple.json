@@ -1,5 +1,6 @@
 {
-  "remoteDB" : "http://localhost:5984/simple",
+  "title" : "Simple Test",
+  "remoteDB" : "http://context.fedarch.org:5984/simple",
   "localDB": "simple",
   "sequence" : ["general", "tree"],
   "general":{
