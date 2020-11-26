@@ -1,4 +1,7 @@
 {
+    "title": "Trees",  
+    "remoteDB" : "http://context.fedarch.org:5984/trees",
+    "localDB": "trees",
     "sequence" : ["general", "tree"],
     "general":{
         "schema": {
