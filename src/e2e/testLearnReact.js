@@ -1,3 +1,5 @@
+let {wd, assert, asserters, driver, desiredCaps} = require("./environment");
+
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -35,37 +37,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var _this = this;
-var wd = require('wd');
-var assert = require('assert');
-var asserters = wd.asserters;
-var environment = require('./environment.ts');
-// For browserstack
-var desiredCaps = {
-    // Set your BrowserStack access credentials
-    'browserstack.user': environment.browserstack.user,
-    'browserstack.key': environment.browserstack.key,
-    'browserstack.appium_version': '1.6.5',
-    // Set URL of the application under test   
-    'app': environment.browserstack.appUrl,
-    // Specify device and os_version for testing
-    'device': 'Google Pixel 3',
-    'os_version': '9.0',
-    // Set other BrowserStack capabilities
-    'project': 'First NodeJS project',
-    'build': 'Node Android',
-    'name': 'first_test'
-};
-var driver = wd.promiseRemote("http://hub-cloud.browserstack.com/wd/hub");
-// For local testing with emulator, replace the above with below:
-// const desiredCaps = {
-//     platformName: 'Android',
-//     platformVersion: '11.0',
-//     deviceName: 'Android Emulator',
-//     // path to apk file
-//     app: 'C:\\Users\\ang05a\\Downloads\\app-debug.apk',
-//     automationName: 'Appium'
-// };
-// const driver = wd.promiseRemote("http://localhost:4723/wd/hub");
 driver
     .init(desiredCaps)
     .then(function () { return __awaiter(_this, void 0, void 0, function () {

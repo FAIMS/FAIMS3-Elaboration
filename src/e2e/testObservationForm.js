@@ -1,3 +1,5 @@
+let {wd, assert, asserters, driver, desiredCaps} = require("./environment");
+
 // Values for the form
 const formValues = {
     optional: {
@@ -16,7 +18,6 @@ const formValues = {
         barkTexture: 'smooth'
     }
 };
-
 driver
     .init(desiredCaps)
     .then(async () => {
