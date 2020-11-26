@@ -1,4 +1,3 @@
-"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -35,42 +34,41 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-exports.__esModule = true;
+var _this = this;
 var wd = require('wd');
 var assert = require('assert');
 var asserters = wd.asserters;
+var environment = require('./environment.ts');
+// For browserstack
 var desiredCaps = {
     // Set your BrowserStack access credentials
-    // RTFM!!! https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets#using-encrypted-secrets-in-a-workflow
-    'browserstack.user': process.env.BROWSERSTACK_USERNAME,
-    'browserstack.key': process.env.BROWSERSTACK_ACCESS_KEY,
-    "browserstack.local": "true",
-    "browserstack.localIdentifier": process.env.BROWSERSTACK_LOCAL_IDENTIFIER,
-    // Set URL of the application under test
-    // https://www.browserstack.com/docs/app-automate/appium/upload-app-define-custom-id
-    'app': 'ElaborationApp',
+    'browserstack.user': environment.browserstack.user,
+    'browserstack.key': environment.browserstack.key,
+    'browserstack.appium_version': '1.6.5',
+    // Set URL of the application under test   
+    'app': environment.browserstack.appUrl,
     // Specify device and os_version for testing
     'device': 'Google Pixel 3',
     'os_version': '9.0',
-    // 'browserstack.appium_version': '1.6.5',
-    // 'appium_version': '1.6.5',
     // Set other BrowserStack capabilities
-    // You need to invoke the browserstack/github-actions/setup-env@master GitHub Action also in the job where test scripts will run because this Action sets up the environment variables BROWSERSTACK_USERNAME, BROWSERSTACK_ACCESS_KEY, BROWSERSTACK_BUILD_NAME and BROWSERSTACK_PROJECT_NAME, which are to be used in your test scripts
-    'project': 'FAIMS Main Elaboration',
-    'build': process.env.BUILD,
-    'name': process.env.GITHUB_COMMIT_MESSAGE,
-    'debug': true,
-    'browserstack.networkLog': true,
-    'browserstack.debug': true
+    'project': 'First NodeJS project',
+    'build': 'Node Android',
+    'name': 'first_test'
 };
-// Initialize the remote Webdriver using BrowserStack remote URL
-// and desired capabilities defined above
-//https://stackoverflow.com/questions/15361189/how-to-select-all-other-values-in-an-array-except-the-ith-element
-console.log(desiredCaps);
 var driver = wd.promiseRemote("http://hub-cloud.browserstack.com/wd/hub");
+// For local testing with emulator, replace the above with below:
+// const desiredCaps = {
+//     platformName: 'Android',
+//     platformVersion: '11.0',
+//     deviceName: 'Android Emulator',
+//     // path to apk file
+//     app: 'C:\\Users\\ang05a\\Downloads\\app-debug.apk',
+//     automationName: 'Appium'
+// };
+// const driver = wd.promiseRemote("http://localhost:4723/wd/hub");
 driver
     .init(desiredCaps)
-    .then(function () { return __awaiter(void 0, void 0, void 0, function () {
+    .then(function () { return __awaiter(_this, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, driver.waitForElementByAccessibilityId('Learn React', asserters.isDisplayed
@@ -79,7 +77,7 @@ driver
         }
     });
 }); })
-    .then(function (learnReact) { return __awaiter(void 0, void 0, void 0, function () {
+    .then(function (learnReact) { return __awaiter(_this, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, learnReact.click()];
@@ -89,7 +87,7 @@ driver
         }
     });
 }); })
-    .then(function () { return __awaiter(void 0, void 0, void 0, function () {
+    .then(function () { return __awaiter(_this, void 0, void 0, function () {
     var prompts, chrome;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -113,5 +111,3 @@ driver
     return driver.quit();
 })
     .done();
-//https://stackoverflow.com/a/64677282
-exports["default"] = {};
