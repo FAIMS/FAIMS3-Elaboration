@@ -6,6 +6,7 @@ import com.getcapacitor.BridgeActivity;
 import com.getcapacitor.Plugin;
 
 import java.util.ArrayList;
+import android.webkit.WebView;
 
 public class MainActivity extends BridgeActivity {
   @Override
@@ -17,5 +18,7 @@ public class MainActivity extends BridgeActivity {
       // Additional plugins you've installed go here
       // Ex: add(TotallyAwesomePlugin.class);
     }});
+    // Enable web view debugging for e2e tests
+    WebView.setWebContentsDebuggingEnabled(true);
   }
 }
