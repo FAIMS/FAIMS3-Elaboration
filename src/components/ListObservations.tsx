@@ -15,7 +15,7 @@ const ListObservations =  () => {
                     setRecords(data)
                 })
         }
-    }, [])
+    }, [formSpec])
 
     useEffect(() => {
         window.addEventListener('dataUpdated', () => {
