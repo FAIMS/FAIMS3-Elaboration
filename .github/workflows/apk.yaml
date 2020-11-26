@@ -276,7 +276,7 @@ jobs:
 
       - name: "Find errors in appium log"
         run: |
-          echo ::set-output name=error-count::$(grep "Encountered internal error" appium.log | wc -l)
+          echo ::set-output name=error-count::$(grep -i "Error" appium.log | wc -l)
         id: error-count
       - run: |
           echo "Public build URL: ${{steps.sessions-json.outputs.public_url}}"
