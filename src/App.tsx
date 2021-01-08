@@ -30,7 +30,7 @@ const App = () => {
   const MapPage = (props: RouteComponentProps) => (<MapComponent />)
 
   return (
-    <div>
+    <div id='main'>
       <nav>
         <ul>
           <li><Link to="/">Home</Link></li>
@@ -41,6 +41,7 @@ const App = () => {
         </ul>
       </nav>
 
+      <div id='content'>
       <Router>
         <Logo path="/" />
         <SchemaPage path="/schema" />
@@ -49,6 +50,7 @@ const App = () => {
         <SingleObservation path="/list/:id"/>
         <MapPage path="/map" />
       </Router>
+      </div>
     </div>
      )
     

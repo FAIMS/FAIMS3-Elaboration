@@ -1,7 +1,10 @@
+import { Capacitor } from '@capacitor/core';
 import PouchDB from 'pouchdb';
 import PouchAdaptorCordovaSqlite from 'pouchdb-adapter-cordova-sqlite';
 
-PouchDB.plugin(PouchAdaptorCordovaSqlite);
+if (Capacitor.getPlatform()  !== 'web') {
+    PouchDB.plugin(PouchAdaptorCordovaSqlite);
+}
 interface ApplicationSchema {
     title: string,
     localDB: string,
@@ -16,12 +19,14 @@ let selectedSchema: ApplicationSchema
 let schemaDB:PouchDB.Database
 
 
-const localPouchDBOptions = {
-    adapter: 'cordova-sqlite',
-    location: 'default'
-};
-
-const remotePouchDBOptions = {};
+let localPouchDBOptions = {}
+let remotePouchDBOptions = {};
+if (Capacitor.getPlatform()  !== 'web') {
+    localPouchDBOptions = {
+        adapter: 'cordova-sqlite',
+        location: 'default'
+    };
+}
 
 const schemaDBConnect = () => {
     const dbURL = "https://couchdb.stevecassidy.net/schema"
